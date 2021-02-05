@@ -24,9 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import Model.Customer;
-import Model.User;
 
-public class DriverMainActDrawerLayout extends AppCompatActivity{
+
+public class DriverMainActDrawerLayout extends AppCompatActivity {
     DrawerLayout drawerLayout;
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -37,46 +37,49 @@ public class DriverMainActDrawerLayout extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_act_drawer_layout);
-        Toolbar toolbar=findViewById(R.id.nav_toolbar);
-        drawerLayout=findViewById(R.id.draw_layout);
+        Toolbar toolbar = findViewById(R.id.nav_toolbar);
+        drawerLayout = findViewById(R.id.draw_layout);
         setSupportActionBar(toolbar);
-        auth=FirebaseAuth.getInstance();
-        NavigationView navigationView=findViewById(R.id.navigation_view);
+        auth = FirebaseAuth.getInstance();
+        NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
-        if(savedInstanceState==null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Frag_reportMyStatus()).commit();
-             navigationView.setCheckedItem(R.id.nav_status);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Frag_reportMyStatus()).commit();
+            navigationView.setCheckedItem(R.id.nav_status);
         }
     }
-    public void logout(View view){
+
+    public void logout(View view) {
         auth.signOut();
-        startActivity(new Intent(this,DriverLS.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
-    public void onBackPressed(){
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else{
+        } else {
             super.onBackPressed();
         }
     }
+
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_contact:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragContactSupport()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragContactSupport()).commit();
                 break;
             case R.id.nav_status:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Frag_reportMyStatus()).commit();
-                 break;
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Frag_reportMyStatus()).commit();
+                break;
             case R.id.nav_home:
                 startActivity(new Intent(DriverMainActDrawerLayout.this, DriverHome.class));
                 // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragHome()).commit();
                 break;
             case R.id.nav_logSheet:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Frag_vehicals_log_sheet()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Frag_vehicals_log_sheet()).commit();
                 break;
             case R.id.nav_ride:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DriRideStatus()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DriRideStatus()).commit();
                 break;
 
 
@@ -84,24 +87,26 @@ public class DriverMainActDrawerLayout extends AppCompatActivity{
         drawerLayout.closeDrawer(GravityCompat.START);
         return false;
     }
+
     public void setSupportActionBar(Toolbar toolbar) {
-        user= FirebaseAuth.getInstance().getCurrentUser();
-        userId=user.getUid();
-        reference= FirebaseDatabase.getInstance().getReference("ApprovedDrivers");
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        userId = user.getUid();
+        reference = FirebaseDatabase.getInstance().getReference("ApprovedDrivers");
 
         reference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String dName=snapshot.getValue(Customer.class).getdName();
+                String dName = snapshot.getValue(Customer.class).getdName();
                 toolbar.setTitle(dName);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(DriverMainActDrawerLayout.this,"error occurred userprofile is null",Toast.LENGTH_LONG).show();
+                Toast.makeText(DriverMainActDrawerLayout.this, "error occurred userprofile is null", Toast.LENGTH_LONG).show();
             }
         });
         ActionBarDrawerToggle actionBarDrawerToggle
-                =new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.nav_drawer_open,R.string.nav_drawer_close);
+                = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
 
         actionBarDrawerToggle.syncState();

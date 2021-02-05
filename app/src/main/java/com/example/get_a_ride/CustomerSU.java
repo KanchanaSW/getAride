@@ -20,26 +20,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import Model.Customer;
-import Model.User;
+
 
 public class CustomerSU extends AppCompatActivity {
-    EditText etname,etpass1,etpass2,etemail,etphone;
+    EditText etname, etpass1, etpass2, etemail, etphone;
     Button btnSignup;
     ProgressBar progressBar;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_s_u);
-        btnSignup=(Button)findViewById(R.id.sighUpD);
-        etname=(EditText)findViewById(R.id.etName);
-        etpass1=(EditText)findViewById(R.id.etPass1);
-        etpass2=(EditText)findViewById(R.id.etPass2);
-        etemail=(EditText)findViewById(R.id.etEmails);
-        etphone=(EditText)findViewById(R.id.etPhone);
+        btnSignup = (Button) findViewById(R.id.sighUpD);
+        etname = (EditText) findViewById(R.id.etName);
+        etpass1 = (EditText) findViewById(R.id.etPass1);
+        etpass2 = (EditText) findViewById(R.id.etPass2);
+        etemail = (EditText) findViewById(R.id.etEmails);
+        etphone = (EditText) findViewById(R.id.etPhone);
         mAuth = FirebaseAuth.getInstance();
-       // theReference = FirebaseDatabase.getInstance().getReference().child("Customers");
-        progressBar=findViewById(R.id.ProgressBar);
+        // theReference = FirebaseDatabase.getInstance().getReference().child("Customers");
+        progressBar = findViewById(R.id.ProgressBar);
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,68 +48,73 @@ public class CustomerSU extends AppCompatActivity {
             }
         });
     }
+
     private void RegisterUser() {
-        String name =etname.getText().toString().trim();
-        String pass1 =etpass1.getText().toString().trim();
-        String pass2 =etpass2.getText().toString().trim();
-        String email =etemail.getText().toString().trim();
-        String phone =etphone.getText().toString().trim();
-        if(name.isEmpty()){
+        String name = etname.getText().toString().trim();
+        String pass1 = etpass1.getText().toString().trim();
+        String pass2 = etpass2.getText().toString().trim();
+        String email = etemail.getText().toString().trim();
+        String phone = etphone.getText().toString().trim();
+        if (name.isEmpty()) {
             etname.setError("Full name cannot be blank");
             etname.requestFocus();
             return;
-        }  if(email.isEmpty()) {
+        }
+        if (email.isEmpty()) {
             etemail.setError("Email cannot be blank");
             etemail.requestFocus();
             return;
-        }  if(pass1.isEmpty()) {
+        }
+        if (pass1.isEmpty()) {
             etpass1.setError("Password cannot be blank");
             etpass1.requestFocus();
             return;
         }
-        if(pass2.isEmpty()) {
+        if (pass2.isEmpty()) {
             etpass2.setError("Password don't match");
             etpass2.requestFocus();
             return;
         }
-        if(phone.isEmpty()) {
+        if (phone.isEmpty()) {
             etphone.setError("Phone cannot be blank");
             etphone.requestFocus();
             return;
-        }  if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             etemail.setError("please provide a valid email address");
             etemail.requestFocus();
             return;
         }
-        if (pass1.length()<5){
+        if (pass1.length() < 5) {
             etpass1.setError("plz provide a pass with min 6 chars");
             etpass1.requestFocus();
             return;
         }
         progressBar.setVisibility(View.VISIBLE);
-        mAuth.createUserWithEmailAndPassword(email,pass1)
+        mAuth.createUserWithEmailAndPassword(email, pass1)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Customer newCus=new Customer(name,email,phone);
+                        if (task.isSuccessful()) {
+                            Customer newCus = new Customer(name, email, phone);
                             FirebaseDatabase.getInstance().getReference("Customers")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(newCus).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(CustomerSU.this,"user is regestered sucessfully",Toast.LENGTH_LONG).show();
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(CustomerSU.this, "user is regestered sucessfully", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
-                                        startActivity(new Intent(CustomerSU.this,CustomerLS.class));
-                                    }else {
+                                        startActivity(new Intent(CustomerSU.this, CustomerLS.class));
+                                    } else {
                                         Toast.makeText(CustomerSU.this, "failed to register", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
                             });
 
-                        }else{ Toast.makeText(CustomerSU.this,"failed to register",Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(CustomerSU.this, "failed to register", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }

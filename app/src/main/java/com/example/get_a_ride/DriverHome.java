@@ -24,10 +24,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import Model.Customer;
-import Model.DriverSche;
 import Model.RequestCabD;
 
 public class DriverHome extends AppCompatActivity {
@@ -62,6 +62,7 @@ public class DriverHome extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                  nameDD=snapshot.getValue(Customer.class).getdName();
+               // Query query=FirebaseDatabase.getInstance().getReference().child("CabRequestDetails").orderByChild("driverName").equalTo(nameDD);
                 reference1.child(nameDD).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

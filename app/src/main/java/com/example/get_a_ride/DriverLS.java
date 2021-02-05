@@ -26,9 +26,6 @@ public class DriverLS extends AppCompatActivity {
     ProgressBar progressBar;
     private EditText editTextEmailD, editTextPassD;
     private FirebaseAuth mAuth;
-    // private DatabaseReference theReference;
-    //FirebaseDatabase database = FirebaseDatabase.getInstance();
-    // DatabaseReference myRef = database.getReference("ApprovedDriver");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

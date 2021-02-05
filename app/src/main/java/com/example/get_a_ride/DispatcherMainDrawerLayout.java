@@ -39,7 +39,7 @@ public class DispatcherMainDrawerLayout extends AppCompatActivity {
     }
     public void logout(View view){
         auth.signOut();
-        startActivity(new Intent(this,dispatch_login.class));
+        startActivity(new Intent(this,MainActivity.class));
     }
     public void onBackPressed(){
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){

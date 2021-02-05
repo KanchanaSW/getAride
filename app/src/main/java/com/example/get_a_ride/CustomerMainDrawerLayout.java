@@ -25,7 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.jar.Attributes;
 
-import Model.User;
+import Model.Customer;
+
 
 public class CustomerMainDrawerLayout extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -51,10 +52,12 @@ public class CustomerMainDrawerLayout extends AppCompatActivity {
             navigationView.setCheckedItem(R.id.nav_cushome);
         }
     }
-    public void logout(View view){
+
+    public void logout(View view) {
         auth.signOut();
-        startActivity(new Intent(this,CustomerLS.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
+
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
@@ -93,7 +96,7 @@ public class CustomerMainDrawerLayout extends AppCompatActivity {
         reference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String name = snapshot.getValue(User.class).getName();
+                String name = snapshot.getValue(Customer.class).getName();
                 toolbar.setTitle(name);
 
             }
@@ -113,7 +116,4 @@ public class CustomerMainDrawerLayout extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
     }
 
-    public void psDetails() {
-
-    }
 }

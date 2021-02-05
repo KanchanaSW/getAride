@@ -19,9 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.get_a_ride.R;
 
 import java.util.ArrayList;
-import Model.Contact;
+
 import Model.Driver;
-import Model.User;
+
 
 public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.ViewHolder> {
    ArrayList<Driver> profiles;
