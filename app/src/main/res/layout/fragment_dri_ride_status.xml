@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DriRideStatus">
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REPORT MY RIDE DETAILS"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <EditText
+        android:id="@+id/cusNameRMRS"
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        app:layout_constraintHorizontal_bias="0.681"
+        android:ems="10"
+        android:hint="Customer Name"
+        android:paddingLeft="10dp"
+        android:background="@drawable/etcustom"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123" />
+
+    <EditText
+        android:id="@+id/cusPhoneRMRS"
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        app:layout_constraintHorizontal_bias="0.681"
+        android:ems="10"
+        android:hint="Customer Email"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:background="@drawable/etcustom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202" />
+
+    <EditText
+        android:id="@+id/cusMilageRMRS"
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        app:layout_constraintHorizontal_bias="0.681"
+        android:ems="10"
+        android:hint="Mileage"
+        android:paddingLeft="10dp"
+        android:background="@drawable/etcustom"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.284" />
+
+    <EditText
+        android:id="@+id/cusPriceRMRS"
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        app:layout_constraintHorizontal_bias="0.681"
+        android:ems="10"
+        android:paddingLeft="10dp"
+        android:background="@drawable/etcustom"
+        android:hint="Price"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.362" />
+
+    <EditText
+        android:id="@+id/idRMRS"
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        app:layout_constraintHorizontal_bias="0.681"
+        android:ems="10"
+        android:hint="Ride ID"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingLeft="10dp"
+        android:background="@drawable/etcustom"
+        app:layout_constraintVertical_bias="0.443" />
+
+    <Button
+        android:id="@+id/reportDRSbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="report"
+        android:ems="10"
+        android:padding="12dp"
+        android:textSize="15dp"
+        app:cornerRadius="29dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

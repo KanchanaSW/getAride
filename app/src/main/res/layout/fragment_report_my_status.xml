@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Frag_reportMyStatus">
+
+    <Button
+        android:id="@+id/reportRMSbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="report"
+        android:ems="10"
+        android:padding="12dp"
+        android:textSize="15dp"
+        app:cornerRadius="29dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.546" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REPORT MY STATUS"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <RadioGroup
+        android:id="@+id/radiogroupRMS"
+        android:layout_width="231dp"
+        android:layout_height="195dp"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.28">
+
+        <RadioButton
+            android:id="@+id/idleChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="idle"
+            android:checked="false"
+            tools:layout_editor_absoluteX="193dp"
+            tools:layout_editor_absoluteY="157dp">
+
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/onmywaychoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="on the way for hire"
+            tools:layout_editor_absoluteX="191dp"
+            tools:layout_editor_absoluteY="206dp">
+
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/refuellingchoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="refuelling"
+            tools:layout_editor_absoluteX="193dp"
+            tools:layout_editor_absoluteY="258dp">
+
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/takingAbreakchoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="taking a break"
+            tools:layout_editor_absoluteX="193dp"
+            tools:layout_editor_absoluteY="300dp">
+
+        </RadioButton>
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout >

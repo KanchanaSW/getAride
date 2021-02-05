@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "476528549422",
+    "project_id": "getaride-9362d",
+    "storage_bucket": "getaride-9362d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476528549422:android:b5ed31d4850e1d8adc09bf",
+        "android_client_info": {
+          "package_name": "com.example.get_a_ride"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476528549422-o52tq4ap2rhnc59jkit94osrtcgdkf94.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJprp4uVwsp3ol9o9xmiI_KxW4CEXLpss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476528549422-o52tq4ap2rhnc59jkit94osrtcgdkf94.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

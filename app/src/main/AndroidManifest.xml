@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.get_a_ride">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/caricon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/caricon_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GETARIDE.NoActionBar">
+        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".dispatch_login" />
+        <activity android:name=".DisptcherVehicalStatus" />
+        <activity android:name=".DriverHome" />
+        <activity android:name=".DriverSU" />
+        <activity android:name=".DriverLS" />
+        <activity android:name=".CustomerSU" />
+        <activity android:name=".CustomerLS" />
+        <activity android:name=".ApproveDrivers" />
+        <activity android:name=".CustomerMainDrawerLayout" />
+        <activity android:name=".DispatcherMainDrawerLayout" />
+        <activity android:name=".DriverMainActDrawerLayout" />
+        <activity android:name=".customer_request_cab" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
