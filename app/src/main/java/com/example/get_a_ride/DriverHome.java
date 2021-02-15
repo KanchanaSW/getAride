@@ -38,7 +38,7 @@ public class DriverHome extends AppCompatActivity {
     private String userName;
     String number=null;
     Button btncallCustomer;
-    Button bill;
+
     public TextView gtv;
     public TextView gtv2;
     String nameDD=null;
@@ -52,7 +52,13 @@ public class DriverHome extends AppCompatActivity {
         reference1= FirebaseDatabase.getInstance().getReference("CabRequestDetails");
         gtv=(TextView)findViewById(R.id.test);
         btncallCustomer=findViewById(R.id.callCustomer);
-        bill=findViewById(R.id.generateBill);
+        btncallCustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeCall();
+            }
+        });
+
         user= FirebaseAuth.getInstance().getCurrentUser();
         userId=user.getUid();
         reference= FirebaseDatabase.getInstance().getReference("ApprovedDrivers");
@@ -79,24 +85,11 @@ public class DriverHome extends AppCompatActivity {
 
                             gtv.setText("Customer Name : "+cusName+"\n Date and time : "+dateAndTime+"\n Destination : "+destination+"\n Location : "+location+
                                     "\n Customer phone : "+custp+"\n Customer Email : "+cusEmail+"\n Ride ID : "+id+" ");
-
                             number = custp.toString();
-                            btncallCustomer.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    makeCall();
-                                }
-                            });
-                            bill.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                   getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container2,new DriRideStatus()).commit();
-                                }
-                            });
-
                         }else{
                             Toast.makeText(DriverHome.this,"no rides yet",Toast.LENGTH_LONG).show();
                         }
+
                     }
 
                     @Override

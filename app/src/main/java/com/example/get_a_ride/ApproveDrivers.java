@@ -44,7 +44,6 @@ public class ApproveDrivers extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference theReference;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("ApprovedDriverDetails");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,27 +111,10 @@ public class ApproveDrivers extends AppCompatActivity {
             }
         });
     }
-    /*private void saveDriver() {
-        String toDname=driName.getText().toString().trim();
-        String toDemail=driEmail.getText().toString().trim();
-        String toDnic=driNIC.getText().toString().trim();
 
-        Driver newDriver=new Driver(toDname,toDemail,toDnic);
-        myRef.child(toDnic).setValue(newDriver).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()) {
-                    Toast.makeText(ApproveDrivers.this, "Added to driver details db", Toast.LENGTH_LONG).show();
-                        deletePendingD();
-                }else{
-                    Toast.makeText(ApproveDrivers.this, "some error occured while add data to driver details", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }*/
 
     private void deletePendingD() {
-        //delete chile where nic =? so it the driver wont show in pending
+        //delete child where nic =? so it the driver wont show in pending
         String toDnic = driNIC.getText().toString().trim();
         reference.child(toDnic).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -164,3 +146,23 @@ public class ApproveDrivers extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
+
+  /*private void saveDriver() {
+        String toDname=driName.getText().toString().trim();
+        String toDemail=driEmail.getText().toString().trim();
+        String toDnic=driNIC.getText().toString().trim();
+
+        Driver newDriver=new Driver(toDname,toDemail,toDnic);
+        myRef.child(toDnic).setValue(newDriver).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(ApproveDrivers.this, "Added to driver details db", Toast.LENGTH_LONG).show();
+                        deletePendingD();
+                }else{
+                    Toast.makeText(ApproveDrivers.this, "some error occured while add data to driver details", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }*/
