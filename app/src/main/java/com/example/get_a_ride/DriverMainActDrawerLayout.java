@@ -96,8 +96,8 @@ public class DriverMainActDrawerLayout extends AppCompatActivity {
         reference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String dName = snapshot.getValue(Customer.class).getdName();
-                toolbar.setTitle(dName);
+               String dName = snapshot.getValue(Customer.class).getdName();
+               toolbar.setTitle(dName);
             }
 
             @Override
